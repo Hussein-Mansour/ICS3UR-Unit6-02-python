@@ -3,7 +3,7 @@
 # Created by: Hussein Mansour
 # Created on: Wed/Jun2/2021
 # this program generates 10 random numbers between 1 and 100
-# then calculates the average of the numbers and display it
+# display the largest number
 
 
 import random
@@ -11,18 +11,17 @@ import random
 
 def largest_random_number(largest_number):
 
-    largest = 0
+    largest = largest_number[0]
 
-    for counter in range(0, len(largest_number)):
-        largest = largest_number[counter]
-
+    for counter in largest_number:
+        if counter > largest:
+            largest = counter
     return largest
 
 
 def main():
-    # this function uses an array
+    # this function uses an list
     random_number = []
-    random_number.sort()
     # start
     print("Starting ...")
     print("\nHere is a list of random numbers:")
@@ -35,7 +34,9 @@ def main():
             "\nThe random number {0} is: {1}"
             .format(loop_counter + 1, random_number[loop_counter]), end="")
     # output
-    print("\n\nThe largest number is {0}".format(max(random_number)))
+    print(
+        "\n\nThe largest number is {0}"
+        .format(largest_random_number(random_number)))
     print("\nDone.")
 
 
